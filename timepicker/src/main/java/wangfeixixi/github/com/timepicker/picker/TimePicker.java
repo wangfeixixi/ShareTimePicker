@@ -182,25 +182,10 @@ public class TimePicker extends DateTimePicker {
         });
     }
 
-    /**
-     * @deprecated use {@link #setOnTimePickListener(OnTimePickListener)} instead
-     */
     @Deprecated
     @Override
     public final void setOnDateTimePickListener(OnDateTimePickListener listener) {
         super.setOnDateTimePickListener(listener);
-    }
-
-    public void setOnTimePickListener(final OnTimePickListener listener) {
-        if (null == listener) {
-            return;
-        }
-        super.setOnDateTimePickListener(new DateTimePicker.OnTimePickListener() {
-            @Override
-            public void onDateTimePicked(String hour, String minute) {
-                listener.onTimePicked(hour, minute);
-            }
-        });
     }
 
     public interface OnTimePickListener {

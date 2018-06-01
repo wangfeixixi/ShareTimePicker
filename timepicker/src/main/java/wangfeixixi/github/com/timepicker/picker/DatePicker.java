@@ -224,20 +224,6 @@ public class DatePicker extends DateTimePicker {
                     ((OnYearMonthDayPickListener) listener).onDatePicked(year, month, day);
                 }
             });
-        } else if (listener instanceof OnYearMonthPickListener) {
-            super.setOnDateTimePickListener(new OnYearMonthTimePickListener() {
-                @Override
-                public void onDateTimePicked(String year, String month, String hour, String minute) {
-                    ((OnYearMonthPickListener) listener).onDatePicked(year, month);
-                }
-            });
-        } else if (listener instanceof OnMonthDayPickListener) {
-            super.setOnDateTimePickListener(new OnMonthDayTimePickListener() {
-                @Override
-                public void onDateTimePicked(String month, String day, String hour, String minute) {
-                    ((OnMonthDayPickListener) listener).onDatePicked(month, day);
-                }
-            });
         }
     }
 

@@ -574,18 +574,10 @@ public class DateTimePicker extends WheelPicker {
         String minute = getSelectedMinute();
         switch (dateMode) {
             case YEAR_MONTH_DAY:
-                ((OnYearMonthDayTimePickListener) onDateTimePickListener).onDateTimePicked(year, month, day, hour, minute);
-                break;
-            case YEAR_MONTH:
-                ((OnYearMonthTimePickListener) onDateTimePickListener).onDateTimePicked(year, month, hour, minute);
-                break;
-            case MONTH_DAY:
-                ((OnMonthDayTimePickListener) onDateTimePickListener).onDateTimePicked(month, day, hour, minute);
-                break;
-            case NONE:
-                ((OnTimePickListener) onDateTimePickListener).onDateTimePicked(hour, minute);
+
                 break;
         }
+        ((OnYearMonthDayTimePickListener) onDateTimePickListener).onDateTimePicked(year, month, day, hour, minute);
     }
 
     private int findItemIndex(ArrayList<String> items, int item) {
@@ -808,38 +800,6 @@ public class DateTimePicker extends WheelPicker {
 
         void onDateTimePicked(String year, String month, String day, String hour, String minute);
 
-    }
-
-    public interface OnYearMonthTimePickListener extends OnDateTimePickListener {
-
-        void onDateTimePicked(String year, String month, String hour, String minute);
-
-    }
-
-    /**
-     * @deprecated use {@link OnYearMonthTimePickListener} instead
-     */
-    @Deprecated
-    public interface OnYearMonthPickListener extends OnYearMonthTimePickListener {
-
-    }
-
-    public interface OnMonthDayTimePickListener extends OnDateTimePickListener {
-
-        void onDateTimePicked(String month, String day, String hour, String minute);
-    }
-
-    /**
-     * @deprecated use {@link OnMonthDayTimePickListener} instead
-     */
-    @Deprecated
-    public interface OnMonthDayPickListener extends OnMonthDayTimePickListener {
-
-    }
-
-    public interface OnTimePickListener extends OnDateTimePickListener {
-
-        void onDateTimePicked(String hour, String minute);
     }
 
 }
